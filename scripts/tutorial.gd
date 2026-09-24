@@ -4,32 +4,37 @@ const COMPONENTS = {
     "CPU": {
         "title": "CPU",
         "description": "Es el componente que ejecuta instrucciones y realiza operaciones necesarias para que funcionen los programas.",
-        "visual_title": "EJECUCIÓN DE INSTRUCCIONES",
-        "visual_flow": "PROGRAMA\n↓\nCPU\n↓\nRESULTADO"
+        "visual_title": "LA CPU: LEE, PROCESA Y ACTÚA",
+        "visual_flow": "[ PROGRAMA ]  →  [ CPU ]  →  [ RESULTADO ]\n   instrucciones       procesa datos\n\nLa CPU repite este ciclo mientras usas una aplicación.",
+        "visual_hint": "Piensa en la CPU como quien sigue una receta y realiza cada operación."
     },
     "RAM": {
         "title": "RAM",
         "description": "Es una memoria que almacena temporalmente los datos y programas que el computador está utilizando.",
-        "visual_title": "MEMORIA DE TRABAJO",
-        "visual_flow": "PROGRAMA\n↓\nRAM\n↓\nCPU"
+        "visual_title": "RAM: LO QUE ESTÁ EN USO AHORA",
+        "visual_flow": "[ SSD: guardado ] → [ RAM: abierto ] → [ CPU: trabajando ]\n     permanece         acceso rápido\n\nAl cerrar o apagar, la RAM se vacía.",
+        "visual_hint": "La RAM se parece a una mesa de trabajo: deja a mano lo que estás usando."
     },
     "CACHE": {
         "title": "CACHÉ",
         "description": "Es una memoria pequeña y rápida que ayuda a la CPU a acceder rápidamente a datos que necesita con frecuencia.",
-        "visual_title": "ACCESO RÁPIDO",
-        "visual_flow": "CPU\n↓\nCACHÉ\n↓\nDATOS FRECUENTES"
+        "visual_title": "CACHÉ: UN ATAJO PARA LA CPU",
+        "visual_flow": "[ CPU ] ⇄ [ CACHÉ: dato frecuente ]\n    si no está aquí, busca en RAM\n\nEs pequeña y muy rápida; evita repetir esperas.",
+        "visual_hint": "Como tener las herramientas más usadas sobre el escritorio."
     },
     "STORAGE": {
         "title": "ALMACENAMIENTO",
         "description": "Guarda información de manera persistente, incluso cuando el computador se apaga.",
-        "visual_title": "INFORMACIÓN PERSISTENTE",
-        "visual_flow": "ARCHIVOS\n↓\nSSD / ALMACENAMIENTO"
+        "visual_title": "ALMACENAMIENTO: GUARDA A LARGO PLAZO",
+        "visual_flow": "[ documento ] → [ SSD / disco ] → [ sigue guardado ]\n                                  incluso al apagar\n\nConserva archivos y programas entre sesiones.",
+        "visual_hint": "Se parece a un archivador: continúa allí cuando vuelves."
     },
     "BUS": {
         "title": "BUS",
         "description": "Permite la comunicación y transferencia de información entre diferentes componentes del computador.",
-        "visual_title": "COMUNICACIÓN",
-        "visual_flow": "CPU ↔ RAM\n↕\nALMACENAMIENTO"
+        "visual_title": "BUS: LA RUTA DE LOS DATOS",
+        "visual_flow": "[ CPU ] ⇄════ BUS ════⇄ [ RAM ]\n                    ⇅\n             [ almacenamiento ]\n\nTransporta datos y señales entre componentes.",
+        "visual_hint": "Imagina el bus como las vías por donde viaja la información."
     }
 }
 
@@ -48,6 +53,7 @@ var selected_component: String = ""
 @onready var description_label: Label = $MainContent/Body/InfoPanel/InfoContent/Description
 @onready var visual_title: Label = $MainContent/Body/InfoPanel/InfoContent/VisualTitle
 @onready var visual_flow: Label = $MainContent/Body/InfoPanel/InfoContent/VisualFlow
+@onready var visual_hint: Label = $MainContent/Body/InfoPanel/InfoContent/VisualHint
 @onready var hint_label: Label = $MainContent/Body/InfoPanel/InfoContent/Hint
 @onready var completion_panel: PanelContainer = $CompletionPanel
 
@@ -71,6 +77,7 @@ func _on_component_selected(component_id: String):
     description_label.text = component.description
     visual_title.text = component.visual_title
     visual_flow.text = component.visual_flow
+    visual_hint.text = component.visual_hint
     hint_label.text = "Componente descubierto. Explora los demás para completar el tutorial."
 
     _update_button_states()
@@ -102,7 +109,8 @@ func _show_empty_state():
     selected_name.text = "SELECCIONA UN COMPONENTE"
     description_label.text = "Explora los componentes para descubrir qué función cumple cada uno. No hay respuestas correctas o incorrectas en este tutorial."
     visual_title.text = "EXPLORA EL COMPUTADOR"
-    visual_flow.text = "CPU  ↔  RAM\n↕       ↕\nCACHÉ  BUS\n     ↕\nALMACENAMIENTO"
+    visual_flow.text = "[ CPU ] ⇄ [ RAM ]\n   ⇅ BUS ⇅\n[ CACHÉ ]  [ SSD ]"
+    visual_hint.text = "El bus conecta las piezas; cada componente cumple una tarea distinta."
     hint_label.text = "Selecciona un componente para comenzar."
     _update_button_states()
 

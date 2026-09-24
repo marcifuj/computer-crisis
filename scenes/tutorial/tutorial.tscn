@@ -96,7 +96,7 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 16
-text = "┌──────────────────┐\n│    COMPUTADOR    │\n│                  │\n│   CPU     RAM    │\n│                  │\n│ CACHE   ALMAC.   │\n│                  │\n│       BUS        │\n└──────────────────┘"
+text = "COMPUTADOR\n\n[ SSD ] → [ RAM ] ⇄ [ CPU ]\n                 ⇅     ⇅\n              [ BUS ] [CACHÉ]\n\nEl bus lleva datos entre componentes."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -175,6 +175,16 @@ theme_override_font_sizes/font_size = 23
 text = "CPU  ↔  RAM\n↕       ↕\nCACHÉ  BUS\n     ↕\nALMACENAMIENTO"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VisualHint" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.92, 1)
+theme_override_font_sizes/font_size = 15
+text = "Idea clave: cada componente cumple una tarea distinta."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Hint" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
 layout_mode = 2
