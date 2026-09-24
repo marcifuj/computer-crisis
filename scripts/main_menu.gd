@@ -15,7 +15,7 @@ func _on_continue_pressed():
     status_label.text = "No hay una partida guardada todavía."
 
 func _on_learn_pressed():
-    status_label.text = "El módulo de aprendizaje estará disponible en la siguiente fase."
+    get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
 
 func _on_settings_pressed():
     status_label.text = "La configuración estará disponible en una fase posterior."
