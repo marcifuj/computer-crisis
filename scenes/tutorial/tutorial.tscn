@@ -100,35 +100,35 @@ text = "┌──────────────────┐\n│    COM
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ComponentList" type="VBoxContainer" parent="MainContent/Body/ComponentPanel"]
+[node name="ComponentList" type="VBoxContainer" parent="MainContent/Body/ComponentPanel/ComponentContent"]
 layout_mode = 2
 theme_override_constants/separation = 9
 
-[node name="CPUButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+[node name="CPUButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentContent/ComponentList"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "CPU"
 
-[node name="RAMButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+[node name="RAMButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentContent/ComponentList"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "RAM"
 
-[node name="CacheButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+[node name="CacheButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentContent/ComponentList"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "CACHÉ"
 
-[node name="StorageButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+[node name="StorageButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentContent/ComponentList"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "ALMACENAMIENTO"
 
-[node name="BusButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+[node name="BusButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentContent/ComponentList"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
