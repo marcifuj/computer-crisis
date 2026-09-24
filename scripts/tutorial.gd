@@ -56,7 +56,8 @@ func _ready():
         component_buttons[component_id].pressed.connect(_on_component_selected.bind(component_id))
 
     $MainContent/TopBar/BackButton.pressed.connect(_on_back_pressed)
-    $CompletionPanel/CompletionContent/StartLevelButton.pressed.connect(_on_start_level_pressed)
+    $MainContent/Body/InfoPanel/InfoContent/FinishTutorialButton.pressed.connect(_on_finish_tutorial_pressed)
+    $CompletionPanel/CompletionContent/ReturnMenuButton.pressed.connect(_on_back_pressed)
 
     _update_progress()
     _show_empty_state()
@@ -76,8 +77,12 @@ func _on_component_selected(component_id: String):
     _update_progress()
     _animate_info_panel()
 
-    if discovered.size() == COMPONENTS.size():
-        _show_completion()
+    _update_finish_button()
+
+func _update_finish_button():
+    var finish_button: Button = $MainContent/Body/InfoPanel/InfoContent/FinishTutorialButton
+    finish_button.visible = discovered.size() == COMPONENTS.size()
+    finish_button.disabled = discovered.size() != COMPONENTS.size()
 
 func _update_progress():
     progress_label.text = "COMPONENTES DESCUBIERTOS   %d / %d" % [discovered.size(), COMPONENTS.size()]
@@ -109,14 +114,11 @@ func _animate_info_panel():
     tween.set_ease(Tween.EASE_OUT)
     tween.tween_property(info_panel, "modulate", Color.WHITE, 0.25)
 
-func _show_completion():
+func _on_finish_tutorial_pressed():
     completion_panel.visible = true
-    $CompletionPanel/CompletionContent/CompletionTitle.text = "¡HAS CONOCIDO LOS COMPONENTES BÁSICOS!"
+    $CompletionPanel/CompletionContent/CompletionTitle.text = "¡TUTORIAL COMPLETADO!"
+    $CompletionPanel/CompletionContent/CompletionMessage.text = "Ya exploraste CPU, RAM, caché, almacenamiento y bus. Ahora puedes volver al menú."
 
 func _on_back_pressed():
     get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
-func _on_start_level_pressed():
-    $CompletionPanel/CompletionContent/CompletionMessage.text = "El Nivel 1 será implementado en la siguiente fase."
-    $CompletionPanel/CompletionContent/StartLevelButton.text = "NIVEL 1 EN DESARROLLO"
-    $CompletionPanel/CompletionContent/StartLevelButton.disabled = true
