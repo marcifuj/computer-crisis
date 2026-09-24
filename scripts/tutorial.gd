@@ -38,11 +38,11 @@ var selected_component: String = ""
 
 @onready var progress_label: Label = $MainContent/TopBar/Progress
 @onready var component_buttons: Dictionary = {
-    "CPU": $MainContent/Body/ComponentPanel/ComponentList/CPUButton,
-    "RAM": $MainContent/Body/ComponentPanel/ComponentList/RAMButton,
-    "CACHE": $MainContent/Body/ComponentPanel/ComponentList/CacheButton,
-    "STORAGE": $MainContent/Body/ComponentPanel/ComponentList/StorageButton,
-    "BUS": $MainContent/Body/ComponentPanel/ComponentList/BusButton
+    "CPU": $MainContent/Body/ComponentPanel/ComponentContent/ComponentList/CPUButton,
+    "RAM": $MainContent/Body/ComponentPanel/ComponentContent/ComponentList/RAMButton,
+    "CACHE": $MainContent/Body/ComponentPanel/ComponentContent/ComponentList/CacheButton,
+    "STORAGE": $MainContent/Body/ComponentPanel/ComponentContent/ComponentList/StorageButton,
+    "BUS": $MainContent/Body/ComponentPanel/ComponentContent/ComponentList/BusButton
 }
 @onready var selected_name: Label = $MainContent/Body/InfoPanel/InfoContent/SelectedName
 @onready var description_label: Label = $MainContent/Body/InfoPanel/InfoContent/Description
