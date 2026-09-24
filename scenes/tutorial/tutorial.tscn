@@ -1,0 +1,228 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_tutorial"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tutorial")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025, 0.03, 0.045, 1)
+mouse_filter = 2
+
+[node name="MainContent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = -48.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TopBar" type="HBoxContainer" parent="MainContent"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="BackButton" type="Button" parent="MainContent/TopBar"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "← VOLVER"
+
+[node name="TitleContainer" type="VBoxContainer" parent="MainContent/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="MainContent/TopBar/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "CONOCE TU COMPUTADOR"
+
+[node name="Subtitle" type="Label" parent="MainContent/TopBar/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.68, 0.76, 1)
+theme_override_font_sizes/font_size = 14
+text = "Explora los componentes y descubre qué función cumple cada uno."
+
+[node name="Progress" type="Label" parent="MainContent/TopBar"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 1, 0.75, 1)
+theme_override_font_sizes/font_size = 15
+text = "COMPONENTES DESCUBIERTOS   0 / 5"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="MainContent"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 22
+
+[node name="ComponentPanel" type="PanelContainer" parent="MainContent/Body"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="ComponentContent" type="VBoxContainer" parent="MainContent/Body/ComponentPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Heading" type="Label" parent="MainContent/Body/ComponentPanel/ComponentContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.78, 0.88, 1)
+theme_override_font_sizes/font_size = 15
+text = "COMPONENTES"
+horizontal_alignment = 1
+
+[node name="ComputerVisual" type="Label" parent="MainContent/Body/ComponentPanel/ComponentContent"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "┌──────────────────┐\n│    COMPUTADOR    │\n│                  │\n│   CPU     RAM    │\n│                  │\n│ CACHE   ALMAC.   │\n│                  │\n│       BUS        │\n└──────────────────┘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComponentList" type="VBoxContainer" parent="MainContent/Body/ComponentPanel"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="CPUButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "CPU"
+
+[node name="RAMButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "RAM"
+
+[node name="CacheButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "CACHÉ"
+
+[node name="StorageButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "ALMACENAMIENTO"
+
+[node name="BusButton" type="Button" parent="MainContent/Body/ComponentPanel/ComponentList"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "BUS"
+
+[node name="InfoPanel" type="PanelContainer" parent="MainContent/Body"]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InfoContent" type="VBoxContainer" parent="MainContent/Body/InfoPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="SelectedName" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "SELECCIONA UN COMPONENTE"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+custom_minimum_size = Vector2(0, 95)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.89, 0.94, 1)
+theme_override_font_sizes/font_size = 19
+text = "Explora los componentes para descubrir qué función cumple cada uno."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VisualTitle" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 1, 0.75, 1)
+theme_override_font_sizes/font_size = 15
+text = "EXPLORA EL COMPUTADOR"
+horizontal_alignment = 1
+
+[node name="VisualFlow" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.84, 0.96, 1)
+theme_override_font_sizes/font_size = 23
+text = "CPU  ↔  RAM\n↕       ↕\nCACHÉ  BUS\n     ↕\nALMACENAMIENTO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hint" type="Label" parent="MainContent/Body/InfoPanel/InfoContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.6, 0.68, 1)
+theme_override_font_sizes/font_size = 14
+text = "Selecciona un componente para comenzar."
+horizontal_alignment = 1
+
+[node name="CompletionPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompletionContent" type="VBoxContainer" parent="CompletionPanel"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="CompletionTitle" type="Label" parent="CompletionPanel/CompletionContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 1, 0.75, 1)
+theme_override_font_sizes/font_size = 24
+text = "¡HAS CONOCIDO LOS COMPONENTES BÁSICOS!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompletionMessage" type="Label" parent="CompletionPanel/CompletionContent"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.89, 0.94, 1)
+theme_override_font_sizes/font_size = 17
+text = "CPU, RAM, caché, almacenamiento y bus forman parte del funcionamiento del computador."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartLevelButton" type="Button" parent="CompletionPanel/CompletionContent"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "COMENZAR NIVEL 1"
